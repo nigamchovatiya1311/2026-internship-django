@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe File</title>
+</head>
+<body>
+
+    <h1>This is my Kitchen Cloud.in world....</h1>
+
+    <h1 style="color: green;">Recipe Name: {{name}}</h1>
+    <h1 style="color: green;">Time: {{time}}</h1>
+    <h2 style="color: red;">Ingredients: {{ingerdient}}</h2>
+
+    <!-- for loop syntax -->
+    {% for i in ingerdient %}
+      <h3>{{i}}</h3>
+    {% endfor %}
+
+    <!--if else syntax  -->
+    {% if time <= 2 %}
+        <h2 style="color:green">Recipe is easy.</h2>
+
+       {% else %}
+         <h2 style="color:red">Recipe is hard.</h2> 
+         
+    {% endif %}
+    
+</body>
+</html>

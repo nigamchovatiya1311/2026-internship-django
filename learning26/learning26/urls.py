@@ -30,6 +30,10 @@ urlpatterns = [
     path('contact/',views.contact),
     path('movies/',views.movies),
     path('shows/',views.shows),
-    path('news/',views.news)
+    path('news/',views.news),
+    path('recap/', views.recap),
+    path('recipe/', views.recipe),
+    path('team/', views.iplteam),
+    path('collage/', views.collage)
 
 ]

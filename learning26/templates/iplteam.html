@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Namshkara Bengluru..</title>
+</head>
+<body>
+    
+
+    <h1 style="text-align: center; color: red;">Only 1% of Chance and their is an enough...</h1>
+
+    <div style="text-align: center;">
+         <h2>
+            Team Name : {{teamname}}
+         </h2>
+         <h2>
+            Trophy : {{trophy}}
+         </h2>
+         <h2>
+            Captain : {{captain}}
+         </h2>
+         <h2>
+            Playerlist : {{playerlist}}
+         </h2>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">playing xi :</h3>
+        {% for i in playerlist %}
+           <h3 style="color: blueviolet; text-align: center;">{{i}}</h3>
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center;">
+            {% if trophy >= 0 %}
+              <h3 style="color: rgb(14, 112, 79);">Team is in winnerlist</h3>
+                <img src="https://i.pinimg.com/1200x/a5/8d/5f/a58d5f5fa26bb5d13d93acd3ac09892d.jpg" alt="rcb" width="500px" height="350px">
+              {% else %}
+              <h3 style="color: blue;">Team winning under process..</h3>
+
+            {% endif %}
+    </div>
+
+
+</body>
+</html>
