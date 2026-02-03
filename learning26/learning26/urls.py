@@ -20,6 +20,9 @@ from django.urls import path
 from . import views
 #from views import test
 
+# including app level urls
+from django.urls import include
+
 
 
 urlpatterns = [
@@ -34,6 +37,10 @@ urlpatterns = [
     path('recap/', views.recap),
     path('recipe/', views.recipe),
     path('team/', views.iplteam),
-    path('collage/', views.collage)
+    path('collage/', views.collage),
+
+
+    #app level url config
+    path('student/',include('student.urls'))
 
 ]
