@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student', # add this line for student app
+    'test_eGarage', # add this line for test_eGarage app
+    'employee', # add this line for employee app
 ]
 
 MIDDLEWARE = [
