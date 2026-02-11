@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Form</title>
+</head>
+<body>
+    
+    <h1>Course Form</h1>
+
+    <form method="post">
+        {% csrf_token %} <!-- it is used to prevent cross-site request forgery attacks -->
+        {{form}} <!-- it will render the form fields in the template -->
+        <input type="submit" value="Submit">
+
+</body>
+</html>

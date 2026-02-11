@@ -19,4 +19,41 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
     
+
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    duration = models.IntegerField()
+    fees = models.IntegerField()
+
+    class Meta:
+        db_table = "course"
+        verbose_name_plural = "Course"
+
+    def __str__(self):
+        return self.name
     
+    
+class Studenttable(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    email = models.EmailField(unique=True)
+
+    class Meta:
+        db_table = "studenttable"
+        verbose_name_plural = "Studenttable"
+
+    def __str__(self):
+        return self.name
+    
+
+class Inventory(models.Model):
+    name = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+    price = models.IntegerField()
+
+    class Meta:
+        db_table = "inventory"
+        verbose_name_plural = "Inventory"
+
+    def __str__(self):
+        return self.name  

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Employee
+from .forms import EmployeeForm,CourseForm,StudentForm,InventoryForm
 
 # Create your views here.
 
@@ -80,3 +81,50 @@ def employeeFilter(request):
     return render(request, 'employee/employee_filter.html', {'employees': employees})
 
 
+# mannually create employee record
+def createEmployee(request):
+    Employee.objects.create(name = "vaibhav", age = 20, email = "vaibhav@example.com", salary = 40000,join_date = "2024-01-01", post = "Developer")
+    return HttpResponse("Employee Created...")
+
+
+def createEmployeeWithForm(request):
+    print("Request Method:", request.method)
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        form.save() # it will save the form data to the database
+        return HttpResponse("Employee Created...")
+    else:
+        #form object will be created with empty fields
+        form = EmployeeForm() # it will create an empty form
+        return render(request, 'employee/create_employee.html', {'form': form})
+
+def createCourse(request):
+    if request.method == "POST":
+        form = CourseForm(request.POST)
+        form.save() # it will save the form data to the database
+        return HttpResponse("Course Created...")
+    else:
+        #form object will be created with empty fields
+        form = CourseForm() # it will create an empty form
+        return render(request, 'employee/create_course.html', {'form': form})
+    
+
+def createStudent(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        form.save() # it will save the form data to the database
+        return HttpResponse("Student Created...")
+    else:
+        #form object will be created with empty fields
+        form = StudentForm() # it will create an empty form
+        return render(request, 'employee/create_student.html', {'form': form})   
+
+def createInventory(request):
+    if request.method == "POST":
+        form = InventoryForm(request.POST)
+        form.save() # it will save the form data to the database
+        return HttpResponse("Inventory Created...")
+    else:
+        #form object will be created with empty fields
+        form = InventoryForm() # it will create an empty form
+        return render(request, 'employee/create_inventory.html', {'form': form})     
