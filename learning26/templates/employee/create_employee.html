@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>Create Employee</h1>
+    <a href="{% url 'employeeList' %}">Employee List</a>
+    <br><br>
     <form method="post">
         {% csrf_token %} <!-- This is important for security reasons -->
         {{form}}

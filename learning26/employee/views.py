@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Employee
 from .forms import EmployeeForm,CourseForm,StudentForm,InventoryForm
 
@@ -92,7 +92,8 @@ def createEmployeeWithForm(request):
     if request.method == "POST":
         form = EmployeeForm(request.POST)
         form.save() # it will save the form data to the database
-        return HttpResponse("Employee Created...")
+        # return HttpResponse("Employee Created...")
+        return redirect('employeeList') # it will redirect to employee list page after creating employee
     else:
         #form object will be created with empty fields
         form = EmployeeForm() # it will create an empty form
@@ -128,3 +129,27 @@ def createInventory(request):
         #form object will be created with empty fields
         form = InventoryForm() # it will create an empty form
         return render(request, 'employee/create_inventory.html', {'form': form})     
+    
+
+def deleteEmployee(request, id):
+    #delete from employee where id = 1
+    print("id from url:", id)
+    Employee.objects.filter(id = id).delete() # delete employee with given id
+    #return HttpResponse("Employee Deleted...")
+    #employee list redirect
+    return redirect('employeeList')   
+
+def filterEmployee(request):
+    print("filter employee called..")
+    employees = Employee.objects.filter(age__gte=25).values() # filter employee whose age is greater than or equal to 25
+    print("Filtered Employees:", employees)
+    # return redirect('employeeList')
+    return render(request, 'employee/employee_list.html', {'employees': employees})
+
+def sortedEmployee(request, id):
+    if id == 1:
+        employees = Employee.objects.all().order_by('age').values() # order by age in ascending order
+    elif id == 2:
+        employees = Employee.objects.all().order_by('-age').values() # order by age in descending order    
+
+    return render(request, 'employee/employee_list.html', {'employees': employees})
