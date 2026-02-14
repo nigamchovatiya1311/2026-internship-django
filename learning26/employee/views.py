@@ -6,7 +6,8 @@ from .forms import EmployeeForm,CourseForm,StudentForm,InventoryForm
 
 def employeeList(request):
     # employees = Employee.objects.all() #select * from employee
-    employees = Employee.objects.all().values()
+    # employees = Employee.objects.all().values()
+    employees = Employee.objects.all().order_by('id').values()
     # employees = Employee.objects.all().values_list()
 
     print(employees)
@@ -153,3 +154,15 @@ def sortedEmployee(request, id):
         employees = Employee.objects.all().order_by('-age').values() # order by age in descending order    
 
     return render(request, 'employee/employee_list.html', {'employees': employees})
+
+def updateEmployee(request, id):
+    #database existing user... id -->
+    employee = Employee.objects.get(id = id) # select * from employee where id = id
+    if request.method == "POST":
+        form = EmployeeForm(request.POST, instance = employee) # it will create a form with existing employee data, (instance = employee) use to pre-populate the form with existing employee data
+        form.save() # it will save the form data to the database
+        return redirect('employeeList') # it will redirect to employee list page after updating employee
+    else:
+        form = EmployeeForm(instance = employee) # it will create a form with existing employee data, (instance = employee) use to pre-populate the form with existing employee data
+        return render(request, 'employee/update_employee.html', {'form': form})
+   
