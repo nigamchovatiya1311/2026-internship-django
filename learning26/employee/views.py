@@ -165,4 +165,4 @@ def updateEmployee(request, id):
     else:
         form = EmployeeForm(instance = employee) # it will create a form with existing employee data, (instance = employee) use to pre-populate the form with existing employee data
         return render(request, 'employee/update_employee.html', {'form': form})
-   
+ 

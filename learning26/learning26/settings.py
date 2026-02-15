@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'student', # add this line for student app
     'test_eGarage', # add this line for test_eGarage app
     'employee', # add this line for employee app
+    'services', # add this line for services app
 ]
 
 MIDDLEWARE = [
