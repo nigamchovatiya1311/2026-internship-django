@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Form</title>
-</head>
-<body>
+{% extends 'base.html' %} <!-- base.html code part load in this file -->
+{% block content %} <!--  load block part of base.html and add content to it -->
     <h1>Create Employee</h1>
     <a href="{% url 'employeeList' %}">Employee List</a>
     <br><br>
     <form method="post">
         {% csrf_token %} <!-- This is important for security reasons -->
-        {{form}}
+        {{form.as_p}} <!-- This will render the form fields as paragraphs -->
         <input type="submit" value="submit" />
     </form>
-</body>
-</html>
+{% endblock content %}

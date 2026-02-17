@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
-
-    <style>
-        table,th,td{
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 5px;
-        }
-    </style>
-
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     
     <h1>Employee List</h1>
 
-    <a href="{% url 'createEmployee' %}">Create Employee Form</a>
+    <!-- <a href="{% url 'createEmployee' %}">Create Employee Form</a>
 
     <a href="{% url 'filterEmployee' %}">Filter Employee</a>
 
     <a href="{% url 'sortedEmployee' 1 %}">Ascending</a>
-    <a href="{% url 'sortedEmployee' 2 %}">Descending</a>
+    <a href="{% url 'sortedEmployee' 2 %}">Descending</a> -->
 
     <br><br>
      
@@ -59,6 +44,6 @@
             {% endfor %}
         </table>
     </div>
-    
-</body>
-</html>
+
+{% endblock content %}
+

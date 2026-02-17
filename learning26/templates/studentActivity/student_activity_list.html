@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Activity</title>
+
+     <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h3>Student Activities List</h3>
+    
+    <a href="{% url 'create-student-activity' %}">Create Student Activity</a>
+    <br><br>
+    
+    <table> 
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Activity Name</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <td>{{ activity.student_name }}</td>
+                <td>{{ activity.activity_name }}</td>
+                <td>{{ activity.date }}</td>
+                <td>
+                    <a href="{% url 'update-student-activity' activity.id %}">Update</a>
+                    <a href="{% url 'delete-student-activity' activity.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

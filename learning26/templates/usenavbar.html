@@ -1,0 +1,13 @@
+<nav class="navbar">
+      <div class="logo">
+        <a href="#">Django</a>
+      </div>
+      <div class="nav-links">
+        <a href="{% url 'createEmployee' %}">Create Employees</a>
+        <a href="{% url 'employeeList' %}">Employee List</a>
+        <a href="{% url 'filterEmployee' %}">Filter Employees</a>
+        <a href="{% url 'sortedEmployee' 1 %}">Ascending</a>
+        <a href="{% url 'sortedEmployee' 2 %}">Descending</a>
+
+      </div>
+</nav>

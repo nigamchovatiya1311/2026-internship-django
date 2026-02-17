@@ -44,6 +44,7 @@ urlpatterns = [
     path('student/',include('student.urls')),
     path('employee/',include('employee.urls')),
     path('services/',include('services.urls')),
-
+    #services in another models urls cerated in services app
+    path('studentactivity/',include('services.urls')), 
 
 ]

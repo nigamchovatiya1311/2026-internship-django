@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Servicetable
-from .forms import ServiceForm
+from .models import Servicetable, StudentActivity
+from .forms import ServiceForm , StudentActivityForm
+
 
 # Create your views here.
 
@@ -44,3 +45,41 @@ def updateService(request, id):
     else:
         form = ServiceForm(instance=service) # it will create a form with existing service data
         return render(request, 'services/update_service.html', {'form': form}) 
+    
+
+
+
+
+
+
+# student activity views only models create extra for learnning purpose
+#read a form 
+def studentActivityList(request):
+    activities = StudentActivity.objects.all().values()
+    return render(request, 'studentActivity/student_activity_list.html', {'activities': activities})
+
+#create a form
+def createStudentActivity(request):
+    if request.method == "POST":
+        form = StudentActivityForm(request.POST)
+        form.save() # it will save the form data to the database
+        return redirect('student-activity-list') # it will redirect to student activity list page after creating activity
+    else:
+        form = StudentActivityForm() # it will create an empty form
+        return render(request, 'studentActivity/create_student_activity.html', {'form': form})
+    
+#delete a form    
+def deleteStudentActivity(request, id):
+    StudentActivity.objects.filter(id = id).delete() # delete activity with given id
+    return redirect('student-activity-list') # it will redirect to student activity list page after deleting activity
+
+#update a form
+def updateStudentActivity(request, id):
+    activity = StudentActivity.objects.get(id=id) # get activity with given id
+    if request.method == "POST":
+        form = StudentActivityForm(request.POST, instance=activity) # it will update the existing activity with new data
+        form.save() # it will save the form data to the database
+        return redirect('student-activity-list') # it will redirect to student activity list page after updating activity
+    else:
+        form = StudentActivityForm(instance=activity) # it will create a form with existing activity data
+        return render(request, 'studentActivity/update_student_activity.html', {'form': form})
