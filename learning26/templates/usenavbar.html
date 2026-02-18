@@ -1,13 +1,30 @@
 <nav class="navbar">
       <div class="logo">
-        <a href="#">Django</a>
+        <a href="{% url 'employeeList' %}">Django</a>
       </div>
+
       <div class="nav-links">
-        <a href="{% url 'createEmployee' %}">Create Employees</a>
-        <a href="{% url 'employeeList' %}">Employee List</a>
-        <a href="{% url 'filterEmployee' %}">Filter Employees</a>
+      
+        <span class="nav-icon"><a href="{% url 'createEmployee' %}">Create Employees</a></span>
+
+        <span class="nav-icon"><a href="{% url 'employeeList' %}">Employee List</a></span>
+        {% comment %} <a href="{% url 'filterEmployee' %}">Filter Employees</a>
         <a href="{% url 'sortedEmployee' 1 %}">Ascending</a>
-        <a href="{% url 'sortedEmployee' 2 %}">Descending</a>
+        <a href="{% url 'sortedEmployee' 2 %}">Descending</a> {% endcomment %}
+        
+       <div class="dropdown">
+          <span class="nav-icon">
+            <a href="#" class="dropbtn">Filter ▾</a></span>
+            <div class="dropdown-content">
+                <a href="{% url 'filterEmployee' %}">Filter Employees</a>
+                <a href="{% url 'sortedEmployee' 1 %}">Ascending</a>
+                <a href="{% url 'sortedEmployee' 2 %}">Descending</a>
+            </div>
+        </div>
+
+        <span class="nav-icon"><a href="{% url 'service_list' %}">Student Service</a></span>
+
+        <span class="nav-icon"><a href="{% url 'service_create' %}">Create Service</a></span>
 
       </div>
 </nav>

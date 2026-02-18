@@ -10,10 +10,10 @@
 <body>
     
 
-    {% include 'usenavbar.html' %}
+    {% include 'usenavbar.html' %} <!-- This will include the content of usenavbar.html here -->
 
     <div class="content">
-        {% block content %}
+        {% block content %} <!-- This block will be replaced by the content of the child templates -->
         {% endblock content %}
     </div>
 

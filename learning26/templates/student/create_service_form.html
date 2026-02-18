@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} <!-- Load the crispy_forms_tags to use the crispy filter -->
+{% block content %}
+
+<form method = "POST" novalidate>
+    {% csrf_token %}
+    {{form|crispy}}
+
+    {% comment %} mannaual filed add {% endcomment %}
+      {% comment %} {{form.serviceName | as_crispy_field}}
+     {{form.serviceDescription | as_crispy_field}}
+     {{form.servicePrice | as_crispy_field}}
+     {{form.categoryId | as_crispy_field}} {% endcomment %}
+        
+     
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

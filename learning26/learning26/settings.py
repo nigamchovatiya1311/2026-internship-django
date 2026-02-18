@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'test_eGarage', # add this line for test_eGarage app
     'employee', # add this line for employee app
     'services', # add this line for services app
+
+    'crispy_forms', # add this line for crispy forms
+    'crispy_bootstrap5' # add this line for crispy bootstrap5
+
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,8 @@ STATIC_URL = '/static/' # add this line for static files
 STATICFILES_DIRS = [  # add this line for static files directory
     BASE_DIR / 'static'
 ] 
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # add this line for crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap5' # add this line for crispy forms
+

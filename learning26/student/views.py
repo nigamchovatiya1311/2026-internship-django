@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .models import Service
+from .forms import ServicesForm
 
 # Create your views here.
 def studentHome(request):
@@ -23,3 +25,28 @@ def studentArchivement(request):
     archiv2 = {"beststudent2021": "Jane Smith"}
     total = {"a1": archiv1, "a2": archiv2}
     return render(request, 'student/archivement.html', total)
+
+
+# crispy form for student services
+def serviceList(request):
+    services = Service.objects.all()
+    return render(request, 'student/service_list.html', {'services': services})
+
+
+def serviceCreate(request):
+    if request.method == 'POST':
+        form = ServicesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('service_list')
+        else:
+            return render(request, 'student/create_service_form.html', {'form': form})
+    else:
+        form = ServicesForm()
+    return render(request, 'student/create_service_form.html', {'form': form}) 
+
+
+def deleteService(request, service_id):
+    service = Service.objects.get(id=service_id)
+    service.delete()
+    return redirect('service_list')
