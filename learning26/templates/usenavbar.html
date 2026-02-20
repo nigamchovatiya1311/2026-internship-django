@@ -22,8 +22,10 @@
             </div>
         </div>
 
-        <span class="nav-icon"><a href="{% url 'service_list' %}">Student Service</a></span>
+        {% comment %} service List {% endcomment %}
+        <span class="nav-icon"><a href="{% url 'service_list' %}">Service List</a></span>
 
+        {% comment %} create a form for service {% endcomment %}
         <span class="nav-icon"><a href="{% url 'service_create' %}">Create Service</a></span>
 
       </div>

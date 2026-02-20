@@ -46,5 +46,7 @@ urlpatterns = [
     path('services/',include('services.urls')),
     #services in another models urls cerated in services app
     path('studentactivity/',include('services.urls')), 
+    #app level url config for core app
+    path('core/',include('core.urls')),
 
 ]

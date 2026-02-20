@@ -328,6 +328,8 @@ footer p{
 }
 
 /* form validation css */
+
+/* this will call automatically add django when form validation error */
 .invalid-feedback {
     color: red;
     font-size: 14px;

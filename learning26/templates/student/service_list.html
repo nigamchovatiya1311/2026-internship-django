@@ -13,10 +13,10 @@
 
       <div class="card-content">
         <span class="service-category">
-          {{ service.categoryId.categoryName }}
+          {{ service.categoryId.categoryName }} <!-- Display the category name of the service -->
         </span>
         <h3 class="service-title">
-          {{ service.serviceName }}
+          {{ service.serviceName }}  <!-- Display the name of the service -->
         </h3>
         <h3 class="service-button">
           <a href="{% url 'delete_service' service.id %}" onclick="return confirm('Are you sure you want to delete this service {{ service.serviceName }} ?')">Delete</a>

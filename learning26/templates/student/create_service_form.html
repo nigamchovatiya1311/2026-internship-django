@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %} <!-- Load the crispy_forms_tags to use the crispy filter -->
 {% block content %}
 
-<form method = "POST" novalidate>
+<form method = "POST" novalidate> <!-- Disable Browser validation & Enable django validation -->
     {% csrf_token %}
     {{form|crispy}}
 

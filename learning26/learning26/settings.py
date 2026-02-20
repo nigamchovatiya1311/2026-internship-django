@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'test_eGarage', # add this line for test_eGarage app
     'employee', # add this line for employee app
     'services', # add this line for services app
+    'core', # add this line for core app
 
     'crispy_forms', # add this line for crispy forms
     'crispy_bootstrap5' # add this line for crispy bootstrap5
@@ -135,3 +136,5 @@ STATICFILES_DIRS = [  # add this line for static files directory
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # add this line for crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap5' # add this line for crispy forms
 
+# custom user model registration
+AUTH_USER_MODEL = 'core.User' # add this line for custom user model
